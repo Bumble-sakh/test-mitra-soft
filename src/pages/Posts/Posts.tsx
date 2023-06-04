@@ -9,8 +9,8 @@ const Posts = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(fetchPostsRequest());
-  }, [dispatch]);
+    posts.length === 0 && dispatch(fetchPostsRequest());
+  }, [posts, dispatch]);
 
   return (
     <div className='d-flex flex-column'>
