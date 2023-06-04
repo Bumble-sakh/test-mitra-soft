@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Alert, Spinner, Stack } from 'react-bootstrap';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { fetchPostsRequest } from '../../store/posts/actions';
-import Post from './Post';
+import Post from '../../components/Post';
 
 const Posts = () => {
   const { pending, posts, error } = useAppSelector((state) => state.posts);

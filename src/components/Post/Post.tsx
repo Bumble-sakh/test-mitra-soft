@@ -1,13 +1,13 @@
 import { FC, useState } from 'react';
-import { IPost } from '../../../store/posts/types';
+import { IPost } from '../../store/posts/types';
 import { Alert, Button, Card, Image, Nav, Spinner, Stack } from 'react-bootstrap';
-import avatar from '../../../assets/icons/avatar.svg';
-import ROUTES from '../../../configs/routes';
+import avatar from '../../assets/icons/avatar.svg';
+import ROUTES from '../../configs/routes';
 import { Link } from 'react-router-dom';
-import { useAppDispatch, useAppSelector } from '../../../store/hooks';
-import { fetchCommentsRequest } from '../../../store/comments/actions';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { fetchCommentsRequest } from '../../store/comments/actions';
 import Comment from '../Comment';
-import { postCommentsState } from '../../../store/comments/types';
+import { postCommentsState } from '../../store/comments/types';
 
 type PostProps = {
   post: IPost;
@@ -36,7 +36,7 @@ const Post: FC<PostProps> = ({ post }) => {
   return (
     <Card>
       <Card.Header>
-        <Nav.Link as={Link} to={ROUTES.user} className='d-inline-flex'>
+        <Nav.Link as={Link} to={`${ROUTES.user}/${post.userId}`} className='d-inline-flex'>
           <Image src={avatar} roundedCircle style={{ width: '40px', height: '40px', objectFit: 'cover' }} />
         </Nav.Link>
       </Card.Header>
