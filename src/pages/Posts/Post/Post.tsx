@@ -1,7 +1,9 @@
 import { FC } from 'react';
 import { IPost } from '../../../store/posts/types';
-import { Button, Card, Image, Stack } from 'react-bootstrap';
+import { Button, Card, Image, Nav } from 'react-bootstrap';
 import avatar from '../../../assets/icons/avatar.svg';
+import ROUTES from '../../../configs/routes';
+import { Link } from 'react-router-dom';
 
 type PostProps = {
   post: IPost;
@@ -11,10 +13,9 @@ const Post: FC<PostProps> = ({ post }) => {
   return (
     <Card>
       <Card.Header>
-        <Stack direction='horizontal' gap={3}>
+        <Nav.Link as={Link} to={ROUTES.user} className='d-inline-flex'>
           <Image src={avatar} roundedCircle style={{ width: '40px', height: '40px', objectFit: 'cover' }} />
-          <span>Асессоров Игорь</span>
-        </Stack>
+        </Nav.Link>
       </Card.Header>
       <Card.Body>
         <Card.Title>{post.title} </Card.Title>
