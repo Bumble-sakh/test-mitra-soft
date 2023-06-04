@@ -7,9 +7,6 @@ import { IPost } from './types';
 
 const getPosts = () => axios.get<IPost[]>('https://jsonplaceholder.typicode.com/posts');
 
-/*
-  Worker Saga: Fired on FETCH_Posts_REQUEST action
-*/
 function* fetchPostsSaga() {
   try {
     const response: AxiosResponse<IPost[], any> = yield call(getPosts);
@@ -27,10 +24,6 @@ function* fetchPostsSaga() {
   }
 }
 
-/*
-  Starts worker saga on latest dispatched `FETCH_POSTS_REQUEST` action.
-  Allows concurrent increments.
-*/
 function* postsSaga() {
   yield all([takeLatest(FETCH_POSTS_REQUEST, fetchPostsSaga)]);
 }
