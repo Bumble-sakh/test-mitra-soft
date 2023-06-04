@@ -4,10 +4,13 @@ import { all, call, put, takeLatest } from 'redux-saga/effects';
 import { fetchPostsFailure, fetchPostsSuccess } from './actions';
 import { FETCH_POSTS_REQUEST } from './actionTypes';
 import { IPost } from './types';
+import delay from '../../utils/delay';
 
 const getPosts = () => axios.get<IPost[]>('https://jsonplaceholder.typicode.com/posts');
 
 function* fetchPostsSaga() {
+  yield delay(3);
+
   try {
     const response: AxiosResponse<IPost[], any> = yield call(getPosts);
     yield put(
