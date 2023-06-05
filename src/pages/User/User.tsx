@@ -7,6 +7,7 @@ import Post from '../../components/Post/Post';
 import { fetchUserPostsRequest } from '../../store/userPosts/actions';
 import UserCard from '../../components/UserCard/UserCard';
 import UserCardPlaceholder from '../../components/UserCardPlaceholder/UserCardPlaceholder';
+import BackButton from '../../components/BackButton';
 
 const User = () => {
   const { id } = useParams();
@@ -25,6 +26,8 @@ const User = () => {
 
   return (
     <Stack gap={4}>
+      <BackButton />
+
       {pendingUser && <UserCardPlaceholder />}
 
       {errorUser && <Alert variant='danger'>Error: {errorUser}</Alert>}
