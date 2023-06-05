@@ -5,6 +5,7 @@ import { fetchCommentsFailure, fetchCommentsSuccess } from './actions';
 import { FETCH_COMMENTS_REQUEST } from './actionTypes';
 import { FetchCommentsRequest, IComment } from './types';
 import delay from '../../utils/delay';
+import SECONDS from '../../configs/delay';
 
 const getComments = (postId: number) =>
   axios.get<IComment[]>(`https://jsonplaceholder.typicode.com/post/${postId}/comments`);
@@ -12,7 +13,7 @@ const getComments = (postId: number) =>
 function* fetchCommentsSaga({ payload }: FetchCommentsRequest) {
   const { postId } = payload;
 
-  yield delay(3);
+  yield delay(SECONDS);
 
   try {
     const response: AxiosResponse<IComment[], any> = yield call(getComments, postId);

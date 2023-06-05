@@ -7,6 +7,7 @@ import { FETCH_USER_POSTS_REQUEST } from './actionTypes';
 import delay from '../../utils/delay';
 import { IPost } from '../posts/types';
 import { FetchUserPostsRequest } from './types';
+import SECONDS from '../../configs/delay';
 
 const getUserPosts = (userId: number) =>
   axios.get<IPost[]>(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`);
@@ -14,7 +15,7 @@ const getUserPosts = (userId: number) =>
 function* fetchUserPostsSaga({ payload }: FetchUserPostsRequest) {
   const { userId } = payload;
 
-  yield delay(3);
+  yield delay(SECONDS);
 
   try {
     const response: AxiosResponse<IPost[], any> = yield call(getUserPosts, userId);
