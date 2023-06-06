@@ -1,10 +1,12 @@
-import { SET_DISPLAYED_POSTS, SET_DISPLAYED_POSTS_REQUEST, SET_SEARCH } from './actionTypes';
+import { SET_DISPLAYED_POSTS, SET_DISPLAYED_POSTS_REQUEST, SET_SEARCH, SET_SORT } from './actionTypes';
 import {
   SetDisplayedPostsPayload,
   SetDisplayedPostsRequest,
   SetDisplayedPosts,
   SetSearchPayload,
   SetSearch,
+  SetSortPayload,
+  SetSort,
 } from './types';
 import {} from './types';
 
@@ -19,5 +21,10 @@ export const setDisplayedPosts = (payload: SetDisplayedPostsPayload): SetDisplay
 
 export const setSearch = (payload: SetSearchPayload): SetSearch => ({
   type: SET_SEARCH,
+  payload,
+});
+
+export const setSort = (payload: SetSortPayload): SetSort => ({
+  type: SET_SORT,
   payload,
 });

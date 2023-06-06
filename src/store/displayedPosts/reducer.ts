@@ -1,10 +1,11 @@
-import { SET_DISPLAYED_POSTS, SET_SEARCH } from './actionTypes';
+import { SET_DISPLAYED_POSTS, SET_SEARCH, SET_SORT } from './actionTypes';
 
 import { DisplayedPostsState, DisplayedPostsActions } from './types';
 
 const initialState: DisplayedPostsState = {
   posts: [],
   search: '',
+  sort: null,
 };
 
 const displayedPostsReducer = (state = initialState, action: DisplayedPostsActions) => {
@@ -18,6 +19,11 @@ const displayedPostsReducer = (state = initialState, action: DisplayedPostsActio
       return {
         ...state,
         search: action.payload.search,
+      };
+    case SET_SORT:
+      return {
+        ...state,
+        sort: action.payload.sort,
       };
     default:
       return {

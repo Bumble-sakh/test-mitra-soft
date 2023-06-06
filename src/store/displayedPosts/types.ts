@@ -1,9 +1,11 @@
 import { IPost } from '../posts/types';
-import { SET_DISPLAYED_POSTS, SET_DISPLAYED_POSTS_REQUEST, SET_SEARCH } from './actionTypes';
+import { SET_DISPLAYED_POSTS, SET_DISPLAYED_POSTS_REQUEST, SET_SEARCH, SET_SORT } from './actionTypes';
+import { SortType } from './sortTypes';
 
 export interface DisplayedPostsState {
   posts: IPost[];
   search: string;
+  sort: SortType;
 }
 
 export interface SetDisplayedPostsPayload {
@@ -12,6 +14,10 @@ export interface SetDisplayedPostsPayload {
 
 export interface SetSearchPayload {
   search: string;
+}
+
+export interface SetSortPayload {
+  sort: SortType;
 }
 
 export type SetDisplayedPostsRequest = {
@@ -28,4 +34,9 @@ export type SetSearch = {
   payload: SetSearchPayload;
 };
 
-export type DisplayedPostsActions = SetDisplayedPosts | SetSearch;
+export type SetSort = {
+  type: typeof SET_SORT;
+  payload: SetSortPayload;
+};
+
+export type DisplayedPostsActions = SetDisplayedPosts | SetSearch | SetSort;
