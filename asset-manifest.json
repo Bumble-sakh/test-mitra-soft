@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/test-mitra-soft/static/css/main.4da62354.css",
+    "main.js": "/test-mitra-soft/static/js/main.bb6adc01.js",
+    "static/media/myPhoto.jpg": "/test-mitra-soft/static/media/myPhoto.57174120cba9971009d1.jpg",
+    "static/media/github.svg": "/test-mitra-soft/static/media/github.dabc6126cb0fc9c54d5446b001030560.svg",
+    "static/media/avatar.svg": "/test-mitra-soft/static/media/avatar.41adc6bb8d1477d8520e230ff6511075.svg",
+    "static/media/userPhone.svg": "/test-mitra-soft/static/media/userPhone.9f919a744be49e9bc4c66232f0625846.svg",
+    "static/media/telegram.svg": "/test-mitra-soft/static/media/telegram.fd217046a38a157b11ec8ca24ef8e69b.svg",
+    "index.html": "/test-mitra-soft/index.html",
+    "static/media/phone.svg": "/test-mitra-soft/static/media/phone.4d257845c5b3a43506061f1f6d5060dd.svg",
+    "static/media/search.svg": "/test-mitra-soft/static/media/search.2934209332c171c7932ff12f46701934.svg",
+    "static/media/sort.svg": "/test-mitra-soft/static/media/sort.1241661500f794aae6c50a543d966200.svg",
+    "static/media/mail.svg": "/test-mitra-soft/static/media/mail.f2c1565038aab0930253a4beb33b869a.svg",
+    "static/media/undo.svg": "/test-mitra-soft/static/media/undo.d9e2be4933e36c3136b9283a14ee208f.svg",
+    "main.4da62354.css.map": "/test-mitra-soft/static/css/main.4da62354.css.map",
+    "main.bb6adc01.js.map": "/test-mitra-soft/static/js/main.bb6adc01.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4da62354.css",
+    "static/js/main.bb6adc01.js"
+  ]
+}
