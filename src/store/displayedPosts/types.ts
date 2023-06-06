@@ -1,12 +1,17 @@
 import { IPost } from '../posts/types';
-import { SET_DISPLAYED_POSTS, SET_DISPLAYED_POSTS_REQUEST } from './actionTypes';
+import { SET_DISPLAYED_POSTS, SET_DISPLAYED_POSTS_REQUEST, SET_SEARCH } from './actionTypes';
 
 export interface DisplayedPostsState {
   posts: IPost[];
+  search: string;
 }
 
 export interface SetDisplayedPostsPayload {
   posts: IPost[];
+}
+
+export interface SetSearchPayload {
+  search: string;
 }
 
 export type SetDisplayedPostsRequest = {
@@ -18,4 +23,9 @@ export type SetDisplayedPosts = {
   payload: SetDisplayedPostsPayload;
 };
 
-export type DisplayedPostsActions = SetDisplayedPosts;
+export type SetSearch = {
+  type: typeof SET_SEARCH;
+  payload: SetSearchPayload;
+};
+
+export type DisplayedPostsActions = SetDisplayedPosts | SetSearch;

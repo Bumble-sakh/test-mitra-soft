@@ -1,27 +1,35 @@
 import { all, call, put, select, takeLatest } from 'redux-saga/effects';
 
 import { setDisplayedPosts } from './actions';
-import { SET_DISPLAYED_POSTS_REQUEST } from './actionTypes';
-import { IPost, PostsState } from '../posts/types';
+import { SET_DISPLAYED_POSTS_REQUEST, SET_SEARCH } from './actionTypes';
+import { IPost } from '../posts/types';
+import { RootState } from '..';
 
-const setPosts = (posts: IPost[]) => {
-  const result = [...posts];
+interface SetPostsParams {
+  posts: IPost[];
+  search: string;
+}
 
-  //TODO: Фильтуем
+const setPosts = ({ posts, search }: SetPostsParams) => {
+  const result = posts.filter((post) => post.title.includes(search));
 
   return result;
 };
 
 function* setPostsSaga() {
-  const store: PostsState = yield select((state) => state.posts);
+  const store: RootState = yield select((state) => state);
+  const params = {
+    posts: store.posts.posts,
+    search: store.displayedPosts.search,
+  };
 
-  const posts: IPost[] = yield call(setPosts, store.posts);
+  const posts: IPost[] = yield call(setPosts, params);
 
   yield put(setDisplayedPosts({ posts }));
 }
 
 function* displayedPostsSaga() {
-  yield all([takeLatest(SET_DISPLAYED_POSTS_REQUEST, setPostsSaga)]);
+  yield all([takeLatest(SET_DISPLAYED_POSTS_REQUEST, setPostsSaga), takeLatest(SET_SEARCH, setPostsSaga)]);
 }
 
 export default displayedPostsSaga;
