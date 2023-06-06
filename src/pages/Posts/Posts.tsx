@@ -6,7 +6,8 @@ import Post from '../../components/Post';
 import PostsBar from '../../components/PostsBar';
 
 const Posts = () => {
-  const { pending, posts, error } = useAppSelector((state) => state.posts);
+  const { pending, error } = useAppSelector((state) => state.posts);
+  const { posts } = useAppSelector((state) => state.displayedPosts);
   const dispatch = useAppDispatch();
 
   useEffect(() => {

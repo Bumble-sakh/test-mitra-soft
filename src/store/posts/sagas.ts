@@ -6,6 +6,7 @@ import { FETCH_POSTS_REQUEST } from './actionTypes';
 import { IPost } from './types';
 import delay from '../../utils/delay';
 import SECONDS from '../../configs/delay';
+import { setDisplayedPostsRequest } from '../displayedPosts/actions';
 
 const getPosts = () => axios.get<IPost[]>('https://jsonplaceholder.typicode.com/posts');
 
@@ -19,6 +20,7 @@ function* fetchPostsSaga() {
         posts: response.data,
       })
     );
+    yield put(setDisplayedPostsRequest());
   } catch (e) {
     yield put(
       fetchPostsFailure({
